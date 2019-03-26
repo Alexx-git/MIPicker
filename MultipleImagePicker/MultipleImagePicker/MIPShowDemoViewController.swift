@@ -26,7 +26,7 @@ class MIPShowDemoViewController: UIViewController, UICollectionViewDataSource, M
         collectionView.backgroundColor = .white
         collectionView.dataSource = self
         collectionView.autoPinEdgesToSuperviewEdges()
-        MIPCollectionViewCell.register(collectionView: collectionView)
+        PhotoCollectionViewCell.register(collectionView: collectionView)
         setupFlowLayout()
     }
     
@@ -65,7 +65,7 @@ class MIPShowDemoViewController: UIViewController, UICollectionViewDataSource, M
     
     func showMIPNavController()
     {
-        let navController = MIPickerController()
+        let navController = PickerController()
         navController.delegate = self
         self.present(navController, animated: true, completion: nil)
     }
@@ -92,7 +92,7 @@ class MIPShowDemoViewController: UIViewController, UICollectionViewDataSource, M
     
     // Mark: - MIPDelegate methods
     
-    func imagePickerController(_ picker: MIPickerController, didFinishPickingMediaWithInfo infoArray: Array<Dictionary<UIImagePickerController.InfoKey, Any>>) {
+    func imagePickerController(_ picker: PickerController, didFinishPickingMediaWithInfo infoArray: Array<Dictionary<UIImagePickerController.InfoKey, Any>>) {
         items = infoArray
         collectionView.reloadData()
         view.layoutSubviews()

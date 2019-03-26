@@ -1,5 +1,5 @@
 //
-//  MIPAlbumPreviewView+Photos.swift
+//  AlbumPreviewView+Photos.swift
 //  MultipleImagePicker
 //
 //  Created by ALEXANDER on 3/18/19.
@@ -9,7 +9,7 @@
 import UIKit
 import Photos
 
-extension MIPAlbumPreviewView
+extension AlbumPreviewView
 {
     func setImagesFrom(album: PHFetchResult<PHAsset>, count: Int = 3, gap: CGFloat = 2.0, imageSize: CGSize)
 	{

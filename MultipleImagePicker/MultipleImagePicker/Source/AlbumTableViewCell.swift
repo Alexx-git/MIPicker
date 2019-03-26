@@ -1,5 +1,5 @@
 //
-//  MIPTableViewCell.swift
+//  AlbumTableViewCell.swift
 //  MultipleImagePicker
 //
 //  Created by ALEXANDER on 3/18/19.
@@ -7,11 +7,10 @@
 //
 
 import UIKit
-import PureLayout
 
-class MIPTableViewCell: UITableViewCell {
+class AlbumTableViewCell: UITableViewCell {
 
-	let previewView = MIPAlbumPreviewView()
+	let previewView = AlbumPreviewView()
 	let titleLabel = UILabel()
 	let countLabel = UILabel()
 	var verticalInset: CGFloat = 5.0
@@ -60,7 +59,7 @@ class MIPTableViewCell: UITableViewCell {
 	}
 	
 	class func dequeue(tableView:UITableView) -> Self {
-		func helper<T>(tableView:UITableView) -> T where T : MIPTableViewCell {
+		func helper<T>(tableView:UITableView) -> T where T : AlbumTableViewCell {
 			return tableView.dequeueReusableCell(withIdentifier: classReuseIdentifier()) as! T
 		}
 		return helper(tableView:tableView)

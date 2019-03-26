@@ -1,5 +1,5 @@
 //
-//  MIPNavigationController.swift
+//  PickerController.swift
 //  MultipleImagePicker
 //
 //  Created by ALEXANDER on 3/18/19.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class MIPickerController: UIViewController {
+class PickerController: UIViewController {
 	
-	let albumController = MIPAlbumViewController()
+	let albumController = AlbumListViewController()
 	var navController: UINavigationController?
 	
 	weak open var delegate: (UINavigationControllerDelegate & MIPDelegate)?
@@ -52,6 +52,9 @@ class MIPickerController: UIViewController {
 }
 
 protocol MIPDelegate: class {
-    func imagePickerController(_ picker: MIPickerController,
+    func imagePickerController(_ picker: PickerController,
                                didFinishPickingMediaWithInfo infoArray: Array<Dictionary<UIImagePickerController.InfoKey, Any>>)
+    
+    
+    func imagePickerControllerDidCancel(_ picker: PickerController)
 }

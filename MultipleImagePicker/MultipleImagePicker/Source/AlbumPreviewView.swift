@@ -1,5 +1,5 @@
 //
-//  MIPAlbumPreviewView.swift
+//  AlbumPreviewView.swift
 //  MultipleImagePicker
 //
 //  Created by ALEXANDER on 3/18/19.
@@ -9,7 +9,7 @@
 import UIKit
 
 
-class MIPAlbumPreviewView: UIView {
+class AlbumPreviewView: UIView {
 	
 	var imageViews: Array<UIImageView> = []
 	

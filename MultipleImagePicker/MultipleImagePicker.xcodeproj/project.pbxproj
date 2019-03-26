@@ -8,35 +8,52 @@
 
 /* Begin PBXBuildFile section */
 		887DC14E3595C58814AB8FD6 /* Pods_MultipleImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 366E50D672212A3569D00F80 /* Pods_MultipleImagePicker.framework */; };
-		F512F8342240101D0041366C /* MIPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F82E2240101D0041366C /* MIPickerController.swift */; };
-		F512F8352240101D0041366C /* MIPAlbumPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F82F2240101D0041366C /* MIPAlbumPreviewView.swift */; };
-		F512F8362240101D0041366C /* MIPAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F8302240101D0041366C /* MIPAlbumViewController.swift */; };
-		F512F8372240101D0041366C /* MIPAlbumPreviewView+Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F8312240101D0041366C /* MIPAlbumPreviewView+Photos.swift */; };
-		F512F8382240101D0041366C /* MIPSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F8322240101D0041366C /* MIPSelectViewController.swift */; };
-		F512F8392240101D0041366C /* MIPTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F8332240101D0041366C /* MIPTableViewCell.swift */; };
-		F512F83B22402BE20041366C /* MIPCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F83A22402BE10041366C /* MIPCollectionViewCell.swift */; };
 		F512F83D224041900041366C /* MIPShowDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F83C224041900041366C /* MIPShowDemoViewController.swift */; };
 		F5328BB32229BAAF005159C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5328BB22229BAAF005159C0 /* AppDelegate.swift */; };
 		F5328BBA2229BAB3005159C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5328BB92229BAB3005159C0 /* Assets.xcassets */; };
 		F5328BBD2229BAB3005159C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5328BBB2229BAB3005159C0 /* LaunchScreen.storyboard */; };
+		F55A24F4224A92CD00FF3748 /* MIPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55A24F3224A92CD00FF3748 /* MIPicker.swift */; };
+		F55A24F8224A92E700FF3748 /* PickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F82E2240101D0041366C /* PickerController.swift */; };
+		F55A24F9224A92E700FF3748 /* AlbumListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F8302240101D0041366C /* AlbumListViewController.swift */; };
+		F55A24FA224A92E700FF3748 /* AlbumPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F82F2240101D0041366C /* AlbumPreviewView.swift */; };
+		F55A24FB224A92E700FF3748 /* AlbumPreviewView+Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F8312240101D0041366C /* AlbumPreviewView+Photos.swift */; };
+		F55A24FC224A92E700FF3748 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F8322240101D0041366C /* SelectViewController.swift */; };
+		F55A24FD224A92E700FF3748 /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F8332240101D0041366C /* AlbumTableViewCell.swift */; };
+		F55A24FE224A92E700FF3748 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F83A22402BE10041366C /* PhotoCollectionViewCell.swift */; };
+		F55A2501224A966200FF3748 /* UIView+UsefulConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55A24FF224A965A00FF3748 /* UIView+UsefulConstraint.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F55A24EF224A92CD00FF3748 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		366E50D672212A3569D00F80 /* Pods_MultipleImagePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MultipleImagePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42C4CE87628BB631EBC50A87 /* Pods-MultipleImagePicker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultipleImagePicker.release.xcconfig"; path = "Pods/Target Support Files/Pods-MultipleImagePicker/Pods-MultipleImagePicker.release.xcconfig"; sourceTree = "<group>"; };
-		F512F82E2240101D0041366C /* MIPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIPickerController.swift; sourceTree = "<group>"; };
-		F512F82F2240101D0041366C /* MIPAlbumPreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIPAlbumPreviewView.swift; sourceTree = "<group>"; };
-		F512F8302240101D0041366C /* MIPAlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIPAlbumViewController.swift; sourceTree = "<group>"; };
-		F512F8312240101D0041366C /* MIPAlbumPreviewView+Photos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MIPAlbumPreviewView+Photos.swift"; sourceTree = "<group>"; };
-		F512F8322240101D0041366C /* MIPSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIPSelectViewController.swift; sourceTree = "<group>"; };
-		F512F8332240101D0041366C /* MIPTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIPTableViewCell.swift; sourceTree = "<group>"; };
-		F512F83A22402BE10041366C /* MIPCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIPCollectionViewCell.swift; sourceTree = "<group>"; };
+		F512F82E2240101D0041366C /* PickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerController.swift; sourceTree = "<group>"; };
+		F512F82F2240101D0041366C /* AlbumPreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumPreviewView.swift; sourceTree = "<group>"; };
+		F512F8302240101D0041366C /* AlbumListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumListViewController.swift; sourceTree = "<group>"; };
+		F512F8312240101D0041366C /* AlbumPreviewView+Photos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AlbumPreviewView+Photos.swift"; sourceTree = "<group>"; };
+		F512F8322240101D0041366C /* SelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
+		F512F8332240101D0041366C /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
+		F512F83A22402BE10041366C /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		F512F83C224041900041366C /* MIPShowDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIPShowDemoViewController.swift; sourceTree = "<group>"; };
 		F5328BAF2229BAAF005159C0 /* MultipleImagePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultipleImagePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5328BB22229BAAF005159C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5328BB92229BAB3005159C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5328BBC2229BAB3005159C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F5328BBE2229BAB3005159C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F55A24F1224A92CD00FF3748 /* libMIPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMIPicker.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F55A24F3224A92CD00FF3748 /* MIPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIPicker.swift; sourceTree = "<group>"; };
+		F55A24FF224A965A00FF3748 /* UIView+UsefulConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+UsefulConstraint.swift"; sourceTree = "<group>"; };
 		FBE49B9045BE28C70BDADAAD /* Pods-MultipleImagePicker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultipleImagePicker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MultipleImagePicker/Pods-MultipleImagePicker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -46,6 +63,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				887DC14E3595C58814AB8FD6 /* Pods_MultipleImagePicker.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F55A24EE224A92CD00FF3748 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				F5328BB12229BAAF005159C0 /* MultipleImagePicker */,
+				F55A24F2224A92CD00FF3748 /* MIPicker */,
 				F5328BB02229BAAF005159C0 /* Products */,
 				4749236DACB1E4B144A1AE58 /* Pods */,
 				0F3C253ECA90FAECEF512611 /* Frameworks */,
@@ -83,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				F5328BAF2229BAAF005159C0 /* MultipleImagePicker.app */,
+				F55A24F1224A92CD00FF3748 /* libMIPicker.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,7 +116,7 @@
 		F5328BB12229BAAF005159C0 /* MultipleImagePicker */ = {
 			isa = PBXGroup;
 			children = (
-				F54378AE2249348C00B50F7C /* Library */,
+				F54378AE2249348C00B50F7C /* Source */,
 				F5328BB22229BAAF005159C0 /* AppDelegate.swift */,
 				F512F83C224041900041366C /* MIPShowDemoViewController.swift */,
 				F5328BB92229BAB3005159C0 /* Assets.xcassets */,
@@ -100,18 +126,27 @@
 			path = MultipleImagePicker;
 			sourceTree = "<group>";
 		};
-		F54378AE2249348C00B50F7C /* Library */ = {
+		F54378AE2249348C00B50F7C /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				F512F82E2240101D0041366C /* MIPickerController.swift */,
-				F512F8302240101D0041366C /* MIPAlbumViewController.swift */,
-				F512F82F2240101D0041366C /* MIPAlbumPreviewView.swift */,
-				F512F8312240101D0041366C /* MIPAlbumPreviewView+Photos.swift */,
-				F512F8322240101D0041366C /* MIPSelectViewController.swift */,
-				F512F8332240101D0041366C /* MIPTableViewCell.swift */,
-				F512F83A22402BE10041366C /* MIPCollectionViewCell.swift */,
+				F512F82E2240101D0041366C /* PickerController.swift */,
+				F512F8302240101D0041366C /* AlbumListViewController.swift */,
+				F512F82F2240101D0041366C /* AlbumPreviewView.swift */,
+				F512F8312240101D0041366C /* AlbumPreviewView+Photos.swift */,
+				F512F8322240101D0041366C /* SelectViewController.swift */,
+				F512F8332240101D0041366C /* AlbumTableViewCell.swift */,
+				F512F83A22402BE10041366C /* PhotoCollectionViewCell.swift */,
+				F55A24FF224A965A00FF3748 /* UIView+UsefulConstraint.swift */,
 			);
-			path = Library;
+			path = Source;
+			sourceTree = "<group>";
+		};
+		F55A24F2224A92CD00FF3748 /* MIPicker */ = {
+			isa = PBXGroup;
+			children = (
+				F55A24F3224A92CD00FF3748 /* MIPicker.swift */,
+			);
+			path = MIPicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +171,23 @@
 			productReference = F5328BAF2229BAAF005159C0 /* MultipleImagePicker.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F55A24F0224A92CD00FF3748 /* MIPicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F55A24F7224A92CD00FF3748 /* Build configuration list for PBXNativeTarget "MIPicker" */;
+			buildPhases = (
+				F55A24ED224A92CD00FF3748 /* Sources */,
+				F55A24EE224A92CD00FF3748 /* Frameworks */,
+				F55A24EF224A92CD00FF3748 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MIPicker;
+			productName = MIPicker;
+			productReference = F55A24F1224A92CD00FF3748 /* libMIPicker.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -147,6 +199,9 @@
 				ORGANIZATIONNAME = ALEXANDER;
 				TargetAttributes = {
 					F5328BAE2229BAAF005159C0 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					F55A24F0224A92CD00FF3748 = {
 						CreatedOnToolsVersion = 10.1;
 					};
 				};
@@ -165,6 +220,7 @@
 			projectRoot = "";
 			targets = (
 				F5328BAE2229BAAF005159C0 /* MultipleImagePicker */,
+				F55A24F0224A92CD00FF3748 /* MIPicker */,
 			);
 		};
 /* End PBXProject section */
@@ -233,15 +289,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F512F8352240101D0041366C /* MIPAlbumPreviewView.swift in Sources */,
-				F512F8362240101D0041366C /* MIPAlbumViewController.swift in Sources */,
-				F512F8392240101D0041366C /* MIPTableViewCell.swift in Sources */,
-				F512F83B22402BE20041366C /* MIPCollectionViewCell.swift in Sources */,
-				F512F8342240101D0041366C /* MIPickerController.swift in Sources */,
-				F512F8382240101D0041366C /* MIPSelectViewController.swift in Sources */,
 				F5328BB32229BAAF005159C0 /* AppDelegate.swift in Sources */,
-				F512F8372240101D0041366C /* MIPAlbumPreviewView+Photos.swift in Sources */,
 				F512F83D224041900041366C /* MIPShowDemoViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F55A24ED224A92CD00FF3748 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F55A24FA224A92E700FF3748 /* AlbumPreviewView.swift in Sources */,
+				F55A2501224A966200FF3748 /* UIView+UsefulConstraint.swift in Sources */,
+				F55A24F4224A92CD00FF3748 /* MIPicker.swift in Sources */,
+				F55A24FD224A92E700FF3748 /* AlbumTableViewCell.swift in Sources */,
+				F55A24FE224A92E700FF3748 /* PhotoCollectionViewCell.swift in Sources */,
+				F55A24F8224A92E700FF3748 /* PickerController.swift in Sources */,
+				F55A24FC224A92E700FF3748 /* SelectViewController.swift in Sources */,
+				F55A24F9224A92E700FF3748 /* AlbumListViewController.swift in Sources */,
+				F55A24FB224A92E700FF3748 /* AlbumPreviewView+Photos.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +476,30 @@
 			};
 			name = Release;
 		};
+		F55A24F5224A92CD00FF3748 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F55A24F6224A92CD00FF3748 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -428,6 +517,15 @@
 			buildConfigurations = (
 				F5328BC22229BAB3005159C0 /* Debug */,
 				F5328BC32229BAB3005159C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F55A24F7224A92CD00FF3748 /* Build configuration list for PBXNativeTarget "MIPicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F55A24F5224A92CD00FF3748 /* Debug */,
+				F55A24F6224A92CD00FF3748 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

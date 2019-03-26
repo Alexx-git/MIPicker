@@ -1,5 +1,5 @@
 //
-//  CP3AlbumTypeViewController.swift
+//  AlbumListViewController.swift
 //  MultipleImagePicker
 //
 //  Created by ALEXANDER on 3/18/19.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Photos
 
-class MIPAlbumViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class AlbumListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	
 	let tableView = UITableView.newAutoLayout()
 	
@@ -25,7 +25,7 @@ class MIPAlbumViewController: UIViewController, UITableViewDataSource, UITableVi
 	
 	let headerReuseIdentifier = String(describing: UITableViewHeaderFooterView.self)
 	
-	var picker: MIPickerController?
+	var picker: PickerController?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -36,7 +36,7 @@ class MIPAlbumViewController: UIViewController, UITableViewDataSource, UITableVi
 		tableView.dataSource = self
 		tableView.autoPinEdgesToSuperviewEdges()
 		tableView.tableFooterView = UIView()
-		MIPTableViewCell.register(tableView: tableView)
+		AlbumTableViewCell.register(tableView: tableView)
 		tableView.register(UITableViewHeaderFooterView.classForCoder(), forHeaderFooterViewReuseIdentifier: headerReuseIdentifier)
 		loadItems()
 	}
@@ -115,7 +115,7 @@ class MIPAlbumViewController: UIViewController, UITableViewDataSource, UITableVi
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
 	{
-		let cell = MIPTableViewCell.dequeue(tableView: tableView)
+		let cell = AlbumTableViewCell.dequeue(tableView: tableView)
 		let row = indexPath.row
 		let section = indexPath.section
 		cell.titleLabel.text = names[section][row]
@@ -147,7 +147,7 @@ class MIPAlbumViewController: UIViewController, UITableViewDataSource, UITableVi
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
 	{
-		let selectController = MIPSelectViewController()
+		let selectController = SelectViewController()
 		let row = indexPath.row
 		let section = indexPath.section
 		selectController.items = items[section][row]
@@ -165,7 +165,16 @@ class MIPAlbumViewController: UIViewController, UITableViewDataSource, UITableVi
 	
 	@objc func didClickCloseButton(sender: UIBarButtonItem)
 	{
-		self.navigationController?.parent?.dismiss(animated: true, completion: nil)
+        if picker != nil
+        {
+            self.picker?.delegate?.imagePickerControllerDidCancel(picker!)
+            picker!.dismiss(animated: true, completion: nil)
+        }
+        else
+        {
+            
+        }
+        
 	}
 
 }

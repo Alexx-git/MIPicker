@@ -1,5 +1,5 @@
 //
-//  CP3ImageCollectionViewCell.swift
+//  PhotoCollectionViewCell.swift
 //  MultipleImagePicker
 //
 //  Created by ALEXANDER on 3/18/19.
@@ -8,9 +8,8 @@
 
 import UIKit
 
-class MIPCollectionViewCell: UICollectionViewCell {
+class PhotoCollectionViewCell: UICollectionViewCell {
 
-//	let blurLabel = UILabel()
 	let checkmarkImageView = UIImageView(image: UIImage(named: "icons8-ok"))
 	let durationLabel = UILabel()
 	
@@ -29,7 +28,7 @@ class MIPCollectionViewCell: UICollectionViewCell {
 	
 	class func dequeue(collectionView:UICollectionView, for indexPath: IndexPath) -> Self {
 		func helper<T>(collectionView:UICollectionView) -> T where T : MIPCollectionViewCell {
-			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: classReuseIdentifier(), for: indexPath) as! MIPCollectionViewCell
+			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: classReuseIdentifier(), for: indexPath) as! PhotoCollectionViewCell
 			return cell as! T
 		}
 		return helper(collectionView:collectionView)

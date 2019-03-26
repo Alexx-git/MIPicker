@@ -1,5 +1,5 @@
 //
-//  CPMultipleImagePickerViewController.swift
+//  SelectViewController.swift
 //  MultipleImagePicker
 //
 //  Created by ALEXANDER on 3/18/19.
@@ -12,7 +12,7 @@ import Photos
 import MobileCoreServices
 
 
-class MIPSelectViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class SelectViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 	
 	let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
 	
@@ -21,7 +21,7 @@ class MIPSelectViewController: UIViewController, UICollectionViewDataSource, UIC
 	
 	var imageSize: CGSize = CGSize(width: 100, height: 100)
 	
-	var picker: MIPickerController?
+	var picker: PickerController?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -35,7 +35,7 @@ class MIPSelectViewController: UIViewController, UICollectionViewDataSource, UIC
 		flowLayout.minimumInteritemSpacing = 5.0
 		flowLayout.minimumLineSpacing = 5.0
 		setupFlowLayout()
-		MIPCollectionViewCell.register(collectionView: collectionView)
+		PhotoCollectionViewCell.register(collectionView: collectionView)
 		view.addSubview(collectionView)
 		collectionView.autoPinEdgesToSuperviewEdges()
 	}
@@ -60,7 +60,7 @@ class MIPSelectViewController: UIViewController, UICollectionViewDataSource, UIC
 	// MARK: - UICollectionViewDataSource methods
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = MIPCollectionViewCell.dequeue(collectionView: collectionView, for: indexPath)
+		let cell = PhotoCollectionViewCell.dequeue(collectionView: collectionView, for: indexPath)
 		let asset = items[indexPath.row]
 		PHImageManager.default().requestImage(for: asset, targetSize: imageSize, contentMode: .aspectFit, options: nil) { (image, _) -> Void in
 			cell.imageView.image = image
@@ -97,7 +97,7 @@ class MIPSelectViewController: UIViewController, UICollectionViewDataSource, UIC
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		selectedImagesIndexPaths.append(indexPath)
-		let cell = collectionView.cellForItem(at: indexPath) as! MIPCollectionViewCell
+		let cell = collectionView.cellForItem(at: indexPath) as! PhotoCollectionViewCell
 		cell.setSelected()
 	}
 	
@@ -106,7 +106,7 @@ class MIPSelectViewController: UIViewController, UICollectionViewDataSource, UIC
 		{
 			selectedImagesIndexPaths.remove(at: indexOfPath)
 		}
-		let cell = collectionView.cellForItem(at: indexPath) as! MIPCollectionViewCell
+		let cell = collectionView.cellForItem(at: indexPath) as! PhotoCollectionViewCell
 		cell.setDeselected()
 	}
 	
