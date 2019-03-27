@@ -9,23 +9,6 @@
 import Foundation
 import UIKit
 
-enum ViewEdge: NSLayoutConstraint.Attribute {
-    case top = .top
-    case bottom = .bottom
-    case left = .left
-    case right = .right
-}
-
-enum ViewAxis: NSLayoutConstraint.Attribute {
-    case vertical = .vertical
-    case horizontal = .horizontal
-}
-
-enum ViewSize: NSLayoutConstraint.Attribute {
-    case width = .width
-    case height = .height
-}
-
 extension UIView
 {
     func pinToSuperview()
@@ -35,7 +18,7 @@ extension UIView
     
     func pinToSuperview(withEdgeInsets: UIEdgeInsets)
     {
-        if let superview = self.superview
+        if self.superview != nil
         {
             self.pin(edgeToSuperViewEdge: .top, withInset: withEdgeInsets.top, relation: .equal)
             self.pin(edgeToSuperViewEdge: .bottom, withInset: withEdgeInsets.bottom, relation: .equal)
@@ -45,38 +28,60 @@ extension UIView
         
     }
     
-    func pin(edgeToSuperViewEdge: ViewEdge, withInset: CGFloat, relation: NSLayoutConstraint.Relation)
+    func pin(edgeToSuperViewEdge: NSLayoutConstraint.Attribute, withInset: CGFloat, relation: NSLayoutConstraint.Relation)
     {
-        var offset = inset
-        if (edgeToSuperViewEdge == .bottom) ^^ ((edgeToSuperViewEdge == .left))
+        var offset = withInset
+        var newRelation = relation
+        if (edgeToSuperViewEdge == .bottom) || ((edgeToSuperViewEdge == .right))
         {
-            offset = -inset
+            offset = -withInset
+            if relation == .greaterThanOrEqual
+            {
+                newRelation = .lessThanOrEqual
+            }
+            if relation == .lessThanOrEqual
+            {
+                newRelation = .greaterThanOrEqual
+            }
         }
-        self.pin(edge: edgeToSuperViewEdge, toEdge: edgeToSuperViewEdge, ofView: self.superview, withOffset: offset, relation: relation)
+        if let superview = self.superview
+        {
+            self.pin(edge: edgeToSuperViewEdge, toEdge: edgeToSuperViewEdge, ofView: superview, withOffset: offset, relation: newRelation)
+        }
     }
     
-    func pin(edge: ViewEdge, toEdge: ViewEdge, ofView: UIView, withOffset: CGFloat, relation: NSLayoutConstraint.Relation)
+    func pin(edge: NSLayoutConstraint.Attribute, toEdge: NSLayoutConstraint.Attribute, ofView: UIView, withOffset: CGFloat, relation: NSLayoutConstraint.Relation)
     {
-        let constraint = NSLayoutConstraint(item: self, attribute: edge.rawValue, relatedBy: relation, toItem: ofView, attribute: ToEdge.rawValue, multiplier: 1.0, constant: withOffset)
-        constraint.active = true
+        translatesAutoresizingMaskIntoConstraints = false
+        let constraint = NSLayoutConstraint(item: self, attribute: edge, relatedBy: relation, toItem: ofView, attribute: toEdge, multiplier: 1.0, constant: withOffset)
+        constraint.isActive = true
     }
     
-    func alignAxis(toSuperViewAxis: ViewAxis)
+    func alignAxis(toSuperViewAxis: NSLayoutConstraint.Attribute)
     {
-        let constraint = NSLayoutConstraint(item: self, attribute: toSuperViewAxis.rawValue, relatedBy: .equal, toItem: self.superview, attribute: toSuperViewAxis.rawValue, multiplier: 1.0, constant: 0)
-        constraint.active = true
+        translatesAutoresizingMaskIntoConstraints = false
+        let constraint = NSLayoutConstraint(item: self, attribute: toSuperViewAxis, relatedBy: .equal, toItem: self.superview, attribute: toSuperViewAxis, multiplier: 1.0, constant: 0)
+        constraint.isActive = true
     }
     
-    func match(dimension: ViewSize, toDimension: ViewSize, ofView: UIView)
+    func match(dimension: NSLayoutConstraint.Attribute, toDimension: NSLayoutConstraint.Attribute, ofView: UIView)
     {
-        let constraint = NSLayoutConstraint(item: self, attribute: dimension.rawValue, relatedBy: .equal, toItem: ofView, attribute: toDimension.rawValue, multiplier: 1.0, constant: 0)
-        constraint.active = true
+        translatesAutoresizingMaskIntoConstraints = false
+        let constraint = NSLayoutConstraint(item: self, attribute: dimension, relatedBy: .equal, toItem: ofView, attribute: toDimension, multiplier: 1.0, constant: 0)
+        constraint.isActive = true
     }
     
-    func set(dimension: ViewSize, to: CGFloat)
+    func setDimensions(toSize: CGSize)
     {
-        let constraint = NSLayoutConstraint(item: self, attribute: dimension.rawValue, relatedBy: .equal, toItem: self.superview, attribute: .notAnAttribute, multiplier: 1.0, constant: 0)
+        self.set(dimension: .width, to: toSize.width)
+        self.set(dimension: .height, to: toSize.height)
+    }
+    
+    func set(dimension: NSLayoutConstraint.Attribute, to: CGFloat)
+    {
+        translatesAutoresizingMaskIntoConstraints = false
+        let constraint = NSLayoutConstraint(item: self, attribute: dimension, relatedBy: .equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1.0, constant: 0)
 //        NSLayoutAttributeNotAnAttribute
-        constraint.active = true
+        constraint.isActive = true
     }
 }

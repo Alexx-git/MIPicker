@@ -42,7 +42,8 @@ class PickerController: UIViewController {
 		
 		self.addChild(navController!)
 		self.view.addSubview(navController!.view)
-		navController!.view.autoPinEdgesToSuperviewEdges()
+//        navController!.view.autoPinEdgesToSuperviewEdges()
+        navController!.view.pinToSuperview()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {

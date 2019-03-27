@@ -23,26 +23,45 @@ class AlbumTableViewCell: UITableViewCell {
 		contentView.addSubview(previewView)
 		
 		
-		previewView.autoMatch(.width, to: .height, of: previewView)
-		previewView.autoSetDimension(.height, toSize: 100.0)
-		previewView.autoAlignAxis(toSuperviewAxis: .horizontal)
-		previewView.autoPinEdge(toSuperviewEdge: .top, withInset: verticalInset, relation: .greaterThanOrEqual)
-		previewView.autoPinEdge(toSuperviewEdge: .left, withInset: sideInset)
+//        previewView.autoMatch(.width, to: .height, of: previewView)
+//        previewView.autoSetDimension(.height, toSize: 100.0)
+//        previewView.autoAlignAxis(toSuperviewAxis: .horizontal)
+//        previewView.autoPinEdge(toSuperviewEdge: .top, withInset: verticalInset, relation: .greaterThanOrEqual)
+//        previewView.autoPinEdge(toSuperviewEdge: .left, withInset: sideInset)
+        
+        previewView.match(dimension: .width, toDimension: .height, ofView: previewView)
+        previewView.set(dimension: .height, to: 100.0)
+        previewView.alignAxis(toSuperViewAxis: .centerY)
+        previewView.pin(edgeToSuperViewEdge: .top, withInset: verticalInset, relation: .greaterThanOrEqual)
+        previewView.pin(edgeToSuperViewEdge: .left, withInset: sideInset, relation: .equal)
 		
 		let textContainerView = UIView()
 		contentView.addSubview(textContainerView)
-		textContainerView.autoAlignAxis(toSuperviewAxis: .horizontal)
-		textContainerView.autoPinEdge(toSuperviewEdge: .top, withInset: verticalInset, relation: .greaterThanOrEqual)
-		textContainerView.autoPinEdge(toSuperviewEdge: .right)
-		textContainerView.autoPinEdge(.left, to: .right, of: previewView, withOffset: sideInset)
+//        textContainerView.autoAlignAxis(toSuperviewAxis: .horizontal)
+//        textContainerView.autoPinEdge(toSuperviewEdge: .top, withInset: verticalInset, relation: .greaterThanOrEqual)
+//        textContainerView.autoPinEdge(toSuperviewEdge: .right)
+//        textContainerView.autoPinEdge(.left, to: .right, of: previewView, withOffset: sideInset)
+        
+        textContainerView.alignAxis(toSuperViewAxis: .centerY)
+        textContainerView.pin(edgeToSuperViewEdge: .top, withInset: verticalInset, relation: .greaterThanOrEqual)
+        textContainerView.pin(edgeToSuperViewEdge: .right, withInset: 0.0, relation: .equal)
+        textContainerView.pin(edge: .left, toEdge: .right, ofView: previewView, withOffset: sideInset, relation: .equal)
 		
 		textContainerView.addSubview(titleLabel)
 		textContainerView.addSubview(countLabel)
 		
 		
-		titleLabel.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
-		countLabel.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .top)
-		countLabel.autoPinEdge(.top, to: .bottom, of: titleLabel)
+//        titleLabel.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
+        titleLabel.pin(edgeToSuperViewEdge: .top, withInset: 0.0, relation: .equal)
+        titleLabel.pin(edgeToSuperViewEdge: .right, withInset: 0.0, relation: .equal)
+        titleLabel.pin(edgeToSuperViewEdge: .left, withInset: 0.0, relation: .equal)
+        
+//        countLabel.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .top)
+//        countLabel.autoPinEdge(.top, to: .bottom, of: titleLabel)
+        countLabel.pin(edgeToSuperViewEdge: .right, withInset: 0.0, relation: .equal)
+        countLabel.pin(edgeToSuperViewEdge: .left, withInset: 0.0, relation: .equal)
+        countLabel.pin(edgeToSuperViewEdge: .bottom, withInset: 0.0, relation: .equal)
+        countLabel.pin(edge: .top, toEdge: .bottom, ofView: titleLabel, withOffset: 0.0, relation: .equal)
 
 	}
 	

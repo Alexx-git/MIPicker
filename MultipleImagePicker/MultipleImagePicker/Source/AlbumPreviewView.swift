@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PureLayout
 
 
 class AlbumPreviewView: UIView {
@@ -26,7 +27,9 @@ class AlbumPreviewView: UIView {
 			let sideInset = defaultSideInset + CGFloat(counter) * gap
 			let topInset = CGFloat(viewCount - counter) * gap
 			let bottomInset = CGFloat(counter) * gap * 3
-			imageView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: topInset, left: sideInset, bottom: bottomInset, right: sideInset))
+            let edgeInsets = UIEdgeInsets(top: topInset, left: sideInset, bottom: bottomInset, right: sideInset)
+//            imageView.autoPinEdgesToSuperviewEdges(with: edgeInsets)
+            imageView.pinToSuperview(withEdgeInsets: edgeInsets)
 			self.sendSubviewToBack(imageView)
 			imageViews.append(imageView)
 		}

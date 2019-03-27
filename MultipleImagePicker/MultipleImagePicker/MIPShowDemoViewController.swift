@@ -9,7 +9,7 @@
 import UIKit
 import Photos
 
-class MIPShowDemoViewController: UIViewController, UICollectionViewDataSource, MIPDelegate, UINavigationControllerDelegate {
+class MIPShowDemoViewController: UIViewController, UICollectionViewDataSource, UINavigationControllerDelegate, MIPDelegate {
 
     var items: Array<Dictionary<UIImagePickerController.InfoKey, Any>> = []
     
@@ -25,7 +25,8 @@ class MIPShowDemoViewController: UIViewController, UICollectionViewDataSource, M
         self.view.addSubview(collectionView)
         collectionView.backgroundColor = .white
         collectionView.dataSource = self
-        collectionView.autoPinEdgesToSuperviewEdges()
+//        collectionView.autoPinEdgesToSuperviewEdges()
+        collectionView.pinToSuperview()
         PhotoCollectionViewCell.register(collectionView: collectionView)
         setupFlowLayout()
     }
@@ -50,7 +51,7 @@ class MIPShowDemoViewController: UIViewController, UICollectionViewDataSource, M
             PHPhotoLibrary.requestAuthorization({status in
                 if status == .authorized{
                     DispatchQueue.main.async {
-                        self.showMIPNavController()
+                        self.showPickerController()
                     }
                 }
                 else {}
@@ -58,22 +59,22 @@ class MIPShowDemoViewController: UIViewController, UICollectionViewDataSource, M
         }
         else if photos == .authorized
         {
-            showMIPNavController()
+            showPickerController()
         }
         
     }
     
-    func showMIPNavController()
+    func showPickerController()
     {
-        let navController = PickerController()
-        navController.delegate = self
-        self.present(navController, animated: true, completion: nil)
+        let pickerController = PickerController()
+        pickerController.delegate = self
+        self.present(pickerController, animated: true, completion: nil)
     }
     
     // MARK: - UICollectionViewDataSource methods
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = MIPCollectionViewCell.dequeue(collectionView: collectionView, for: indexPath)
+        let cell = PhotoCollectionViewCell.dequeue(collectionView: collectionView, for: indexPath)
         let imageDictionary = items[indexPath.row]
         if let image = imageDictionary[.originalImage] as? UIImage
         {
@@ -96,5 +97,9 @@ class MIPShowDemoViewController: UIViewController, UICollectionViewDataSource, M
         items = infoArray
         collectionView.reloadData()
         view.layoutSubviews()
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: PickerController) {
+        
     }
 }

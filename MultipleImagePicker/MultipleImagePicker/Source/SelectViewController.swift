@@ -37,7 +37,8 @@ class SelectViewController: UIViewController, UICollectionViewDataSource, UIColl
 		setupFlowLayout()
 		PhotoCollectionViewCell.register(collectionView: collectionView)
 		view.addSubview(collectionView)
-		collectionView.autoPinEdgesToSuperviewEdges()
+//        collectionView.autoPinEdgesToSuperviewEdges()
+        collectionView.pinToSuperview()
 	}
 	
 	override func viewDidLayoutSubviews() {

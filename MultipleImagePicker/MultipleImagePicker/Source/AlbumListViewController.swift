@@ -12,7 +12,7 @@ import Photos
 
 class AlbumListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	
-	let tableView = UITableView.newAutoLayout()
+	let tableView = UITableView()
 	
 	
 	var items: Array<Array<PHFetchResult<PHAsset>>> = []
@@ -30,12 +30,13 @@ class AlbumListViewController: UIViewController, UITableViewDataSource, UITableV
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.title = "Photos"
-		self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Exit", style: .plain, target: self, action: #selector(didClickCloseButton(sender:)))
+		self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Exit", style: .plain, target: self, action: #selector(didClickCancelButton(sender:)))
 		view.addSubview(tableView)
 		tableView.delegate = self
 		tableView.dataSource = self
-		tableView.autoPinEdgesToSuperviewEdges()
-		tableView.tableFooterView = UIView()
+//        tableView.autoPinEdgesToSuperviewEdges()
+        tableView.pinToSuperview()
+        tableView.tableFooterView = UIView()
 		AlbumTableViewCell.register(tableView: tableView)
 		tableView.register(UITableViewHeaderFooterView.classForCoder(), forHeaderFooterViewReuseIdentifier: headerReuseIdentifier)
 		loadItems()
@@ -163,7 +164,7 @@ class AlbumListViewController: UIViewController, UITableViewDataSource, UITableV
     
     // MARK: Buttons
 	
-	@objc func didClickCloseButton(sender: UIBarButtonItem)
+	@objc func didClickCancelButton(sender: UIBarButtonItem)
 	{
         if picker != nil
         {

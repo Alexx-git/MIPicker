@@ -27,7 +27,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
 	}
 	
 	class func dequeue(collectionView:UICollectionView, for indexPath: IndexPath) -> Self {
-		func helper<T>(collectionView:UICollectionView) -> T where T : MIPCollectionViewCell {
+		func helper<T>(collectionView:UICollectionView) -> T where T : PhotoCollectionViewCell {
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: classReuseIdentifier(), for: indexPath) as! PhotoCollectionViewCell
 			return cell as! T
 		}
@@ -56,19 +56,25 @@ class PhotoCollectionViewCell: UICollectionViewCell {
 		super.init(frame: frame)
 		contentView.addSubview(imageView)
         imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
-		imageView.autoPinEdgesToSuperviewEdges()
+//        imageView.autoPinEdgesToSuperviewEdges()
+        imageView.pinToSuperview()
         
 		contentView.addSubview(checkmarkImageView)
-		checkmarkImageView.autoSetDimensions(to: checkmarkSize)
-		checkmarkImageView.autoPinEdge(toSuperviewEdge: .right, withInset: checkmarkInset)
-		checkmarkImageView.autoPinEdge(toSuperviewEdge: .bottom, withInset: checkmarkInset)
-		checkmarkImageView.isHidden = true
+        checkmarkImageView.isHidden = true
+//        checkmarkImageView.autoSetDimensions(to: checkmarkSize)
+//        checkmarkImageView.autoPinEdge(toSuperviewEdge: .right, withInset: checkmarkInset)
+//        checkmarkImageView.autoPinEdge(toSuperviewEdge: .bottom, withInset: checkmarkInset)
+        checkmarkImageView.setDimensions(toSize: checkmarkSize)
+		checkmarkImageView.pin(edgeToSuperViewEdge: .right, withInset: checkmarkInset, relation: .equal)
+        checkmarkImageView.pin(edgeToSuperViewEdge: .left, withInset: checkmarkInset, relation: .equal)
 		
 		contentView.addSubview(durationLabel)
 		durationLabel.backgroundColor = .clear
 		durationLabel.textAlignment = .center
-		durationLabel.autoPinEdgesToSuperviewEdges()
-		durationLabel.isHidden = true
+        durationLabel.isHidden = true
+//        durationLabel.autoPinEdgesToSuperviewEdges()
+        durationLabel.pinToSuperview()
+		
 	}
 	
 	required init?(coder aDecoder: NSCoder) {

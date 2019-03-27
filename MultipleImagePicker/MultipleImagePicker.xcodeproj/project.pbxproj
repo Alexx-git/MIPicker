@@ -13,14 +13,14 @@
 		F5328BBA2229BAB3005159C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5328BB92229BAB3005159C0 /* Assets.xcassets */; };
 		F5328BBD2229BAB3005159C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5328BBB2229BAB3005159C0 /* LaunchScreen.storyboard */; };
 		F55A24F4224A92CD00FF3748 /* MIPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55A24F3224A92CD00FF3748 /* MIPicker.swift */; };
-		F55A24F8224A92E700FF3748 /* PickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F82E2240101D0041366C /* PickerController.swift */; };
-		F55A24F9224A92E700FF3748 /* AlbumListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F8302240101D0041366C /* AlbumListViewController.swift */; };
-		F55A24FA224A92E700FF3748 /* AlbumPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F82F2240101D0041366C /* AlbumPreviewView.swift */; };
-		F55A24FB224A92E700FF3748 /* AlbumPreviewView+Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F8312240101D0041366C /* AlbumPreviewView+Photos.swift */; };
-		F55A24FC224A92E700FF3748 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F8322240101D0041366C /* SelectViewController.swift */; };
-		F55A24FD224A92E700FF3748 /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F8332240101D0041366C /* AlbumTableViewCell.swift */; };
-		F55A24FE224A92E700FF3748 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F83A22402BE10041366C /* PhotoCollectionViewCell.swift */; };
-		F55A2501224A966200FF3748 /* UIView+UsefulConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55A24FF224A965A00FF3748 /* UIView+UsefulConstraint.swift */; };
+		F5D6ABC4224AC2A3000C1EE2 /* UIView+UsefulConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55A24FF224A965A00FF3748 /* UIView+UsefulConstraint.swift */; };
+		F5D6ABC5224AC4A3000C1EE2 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F83A22402BE10041366C /* PhotoCollectionViewCell.swift */; };
+		F5D6ABC6224AC4A8000C1EE2 /* PickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F82E2240101D0041366C /* PickerController.swift */; };
+		F5D6ABC7224AC4B4000C1EE2 /* AlbumListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F8302240101D0041366C /* AlbumListViewController.swift */; };
+		F5D6ABC8224AC4B4000C1EE2 /* AlbumPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F82F2240101D0041366C /* AlbumPreviewView.swift */; };
+		F5D6ABC9224AC4B4000C1EE2 /* AlbumPreviewView+Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F8312240101D0041366C /* AlbumPreviewView+Photos.swift */; };
+		F5D6ABCA224AC4B4000C1EE2 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F8322240101D0041366C /* SelectViewController.swift */; };
+		F5D6ABCB224AC4B4000C1EE2 /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F8332240101D0041366C /* AlbumTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -289,7 +289,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5D6ABC6224AC4A8000C1EE2 /* PickerController.swift in Sources */,
 				F5328BB32229BAAF005159C0 /* AppDelegate.swift in Sources */,
+				F5D6ABC5224AC4A3000C1EE2 /* PhotoCollectionViewCell.swift in Sources */,
+				F5D6ABC4224AC2A3000C1EE2 /* UIView+UsefulConstraint.swift in Sources */,
+				F5D6ABC8224AC4B4000C1EE2 /* AlbumPreviewView.swift in Sources */,
+				F5D6ABCB224AC4B4000C1EE2 /* AlbumTableViewCell.swift in Sources */,
+				F5D6ABC7224AC4B4000C1EE2 /* AlbumListViewController.swift in Sources */,
+				F5D6ABC9224AC4B4000C1EE2 /* AlbumPreviewView+Photos.swift in Sources */,
+				F5D6ABCA224AC4B4000C1EE2 /* SelectViewController.swift in Sources */,
 				F512F83D224041900041366C /* MIPShowDemoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,15 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F55A24FA224A92E700FF3748 /* AlbumPreviewView.swift in Sources */,
-				F55A2501224A966200FF3748 /* UIView+UsefulConstraint.swift in Sources */,
 				F55A24F4224A92CD00FF3748 /* MIPicker.swift in Sources */,
-				F55A24FD224A92E700FF3748 /* AlbumTableViewCell.swift in Sources */,
-				F55A24FE224A92E700FF3748 /* PhotoCollectionViewCell.swift in Sources */,
-				F55A24F8224A92E700FF3748 /* PickerController.swift in Sources */,
-				F55A24FC224A92E700FF3748 /* SelectViewController.swift in Sources */,
-				F55A24F9224A92E700FF3748 /* AlbumListViewController.swift in Sources */,
-				F55A24FB224A92E700FF3748 /* AlbumPreviewView+Photos.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
