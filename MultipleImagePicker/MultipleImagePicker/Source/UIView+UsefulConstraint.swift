@@ -73,14 +73,14 @@ extension UIView
     
     func setDimensions(toSize: CGSize)
     {
-        self.set(dimension: .width, to: toSize.width)
-        self.set(dimension: .height, to: toSize.height)
+        self.set(dimension: .width, toSize: toSize.width)
+        self.set(dimension: .height, toSize: toSize.height)
     }
     
-    func set(dimension: NSLayoutConstraint.Attribute, to: CGFloat)
+    func set(dimension: NSLayoutConstraint.Attribute, toSize: CGFloat)
     {
         translatesAutoresizingMaskIntoConstraints = false
-        let constraint = NSLayoutConstraint(item: self, attribute: dimension, relatedBy: .equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1.0, constant: 0)
+        let constraint = NSLayoutConstraint(item: self, attribute: dimension, relatedBy: .equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1.0, constant: toSize)
 //        NSLayoutAttributeNotAnAttribute
         constraint.isActive = true
     }

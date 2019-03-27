@@ -66,7 +66,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
 //        checkmarkImageView.autoPinEdge(toSuperviewEdge: .bottom, withInset: checkmarkInset)
         checkmarkImageView.setDimensions(toSize: checkmarkSize)
 		checkmarkImageView.pin(edgeToSuperViewEdge: .right, withInset: checkmarkInset, relation: .equal)
-        checkmarkImageView.pin(edgeToSuperViewEdge: .left, withInset: checkmarkInset, relation: .equal)
+        checkmarkImageView.pin(edgeToSuperViewEdge: .bottom, withInset: checkmarkInset, relation: .equal)
 		
 		contentView.addSubview(durationLabel)
 		durationLabel.backgroundColor = .clear

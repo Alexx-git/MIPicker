@@ -30,7 +30,7 @@ class AlbumTableViewCell: UITableViewCell {
 //        previewView.autoPinEdge(toSuperviewEdge: .left, withInset: sideInset)
         
         previewView.match(dimension: .width, toDimension: .height, ofView: previewView)
-        previewView.set(dimension: .height, to: 100.0)
+        previewView.set(dimension: .height, toSize: 100.0)
         previewView.alignAxis(toSuperViewAxis: .centerY)
         previewView.pin(edgeToSuperViewEdge: .top, withInset: verticalInset, relation: .greaterThanOrEqual)
         previewView.pin(edgeToSuperViewEdge: .left, withInset: sideInset, relation: .equal)
