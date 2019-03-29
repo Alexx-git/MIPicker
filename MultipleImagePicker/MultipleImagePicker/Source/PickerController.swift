@@ -8,12 +8,12 @@
 
 import UIKit
 
-class PickerController: UIViewController {
+public class PickerController: UIViewController {
 	
 	let albumController = AlbumListViewController()
 	var navController: UINavigationController?
 	
-	weak open var delegate: (UINavigationControllerDelegate & MIPDelegate)?
+    weak public var delegate: (UINavigationControllerDelegate & MIPDelegate)?
 	{
 		didSet
 		{
@@ -60,7 +60,7 @@ class PickerController: UIViewController {
 	
 }
 
-protocol MIPDelegate: class {
+public protocol MIPDelegate: class {
     func imagePickerController(_ picker: PickerController,
                                didFinishPickingMediaWithInfo infoArray: Array<Dictionary<UIImagePickerController.InfoKey, Any>>)
     
