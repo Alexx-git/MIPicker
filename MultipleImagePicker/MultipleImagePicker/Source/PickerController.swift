@@ -25,8 +25,16 @@ class PickerController: UIViewController {
 		}
 	}
 
+    
+    public var userAlbumsTitle: String? = "My Albums"
+    {
+        didSet
+        {
+            albumController.userAlbumsTitle = userAlbumsTitle
+        }
+    }
 	
-	var imagePickingFinishedButtonTitle: String? = "Done"
+	public var imagePickingFinishedButtonTitle: String? = "Done"
 	{
 		didSet
 		{

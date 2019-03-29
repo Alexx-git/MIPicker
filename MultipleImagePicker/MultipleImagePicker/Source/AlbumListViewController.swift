@@ -19,6 +19,7 @@ class AlbumListViewController: UIViewController, UITableViewDataSource, UITableV
 	var names: Array<Array<String>> = []
 	
 	var imagePickingFinishedButtonTitle: String?
+    var userAlbumsTitle: String?
 
 	
 	let imageSize = CGSize(width: 100.0, height: 100.0)
