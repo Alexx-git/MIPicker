@@ -31,7 +31,7 @@ class AlbumListViewController: UIViewController, UITableViewDataSource, UITableV
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.title = "Photos"
-		self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Exit", style: .plain, target: self, action: #selector(didClickCancelButton(sender:)))
+		self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(didClickCancelButton(sender:)))
 		view.addSubview(tableView)
 		tableView.delegate = self
 		tableView.dataSource = self
@@ -140,7 +140,7 @@ class AlbumListViewController: UIViewController, UITableViewDataSource, UITableV
 	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		if section == 1 && items[section].count > 0
 		{
-			return "My Albums"
+			return userAlbumsTitle
 		}
 		return nil
 	}
