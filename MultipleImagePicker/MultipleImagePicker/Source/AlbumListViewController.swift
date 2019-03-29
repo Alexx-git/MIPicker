@@ -126,7 +126,7 @@ class AlbumListViewController: UIViewController, UITableViewDataSource, UITableV
 		let viewCount = min(assets.count, 3)
 		for counter in 0..<viewCount
 		{
-			PHImageManager.default().requestImage(for: assets[counter], targetSize: imageSize, contentMode: .aspectFill, options: nil) { (image, _) -> Void in
+			PHImageManager.default().requestImage(for: assets[counter], targetSize: cell.previewView.sizeForViewAt(number: counter), contentMode: .aspectFill, options: nil) { (image, _) -> Void in
 				if image != nil
 				{
 					cell.previewView.set(image: image!, forViewAt: counter)
@@ -159,7 +159,6 @@ class AlbumListViewController: UIViewController, UITableViewDataSource, UITableV
 			selectController.navigationItem.rightBarButtonItem?.title = imagePickingFinishedButtonTitle
 		}
 		selectController.picker = picker
-		selectController.imageSize = imageSize
 		self.navigationController?.pushViewController(selectController, animated: true)
 	}
     

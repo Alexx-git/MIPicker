@@ -55,6 +55,8 @@ class PhotoCollectionViewCell: UICollectionViewCell {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		contentView.addSubview(imageView)
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
 //        imageView.autoPinEdgesToSuperviewEdges()
         imageView.pinToSuperview()

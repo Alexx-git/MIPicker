@@ -19,7 +19,6 @@ class SelectViewController: UIViewController, UICollectionViewDataSource, UIColl
 	var items: PHFetchResult<PHAsset>!
 	var selectedImagesIndexPaths: Array<IndexPath> = []
 	
-	var imageSize: CGSize = CGSize(width: 100, height: 100)
 	
 	var picker: PickerController?
 
@@ -50,9 +49,7 @@ class SelectViewController: UIViewController, UICollectionViewDataSource, UIColl
 	{
 		let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
 		let itemWidth = (collectionView.frame.width - 3 * flowLayout.minimumInteritemSpacing) / 4
-		let itemSize = CGSize(width: itemWidth, height: itemWidth)
-		imageSize = itemSize
-		flowLayout.itemSize = itemSize
+		flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth)
 	}
 	
 	
@@ -63,7 +60,8 @@ class SelectViewController: UIViewController, UICollectionViewDataSource, UIColl
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = PhotoCollectionViewCell.dequeue(collectionView: collectionView, for: indexPath)
 		let asset = items[indexPath.row]
-		PHImageManager.default().requestImage(for: asset, targetSize: imageSize, contentMode: .aspectFit, options: nil) { (image, _) -> Void in
+        let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+		PHImageManager.default().requestImage(for: asset, targetSize: flowLayout.itemSize, contentMode: .aspectFit, options: nil) { (image, _) -> Void in
 			cell.imageView.image = image
 			cell.contentView.backgroundColor = .red
 		}
@@ -132,7 +130,8 @@ class SelectViewController: UIViewController, UICollectionViewDataSource, UIColl
             }
 			
 			let name = asset.value(forKey: "filename") as? String
-			PHImageManager.default().requestImage(for: asset, targetSize: imageSize, contentMode: .aspectFit, options: nil) { (image, _) -> Void in
+            
+			PHImageManager.default().requestImage(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: nil) { (image, _) -> Void in
                 mediaDictionary[.originalImage] = image
                 imageDictionaries.append(mediaDictionary)
 				counter -= 1
