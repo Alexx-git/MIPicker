@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MIPicker"
-  s.version      = "0.0.1"
+  s.version      = "0.1.0"
   s.summary      = "An image picker similar to UIImagePicker with multiple image selection support"
   s.homepage     = "https://github.com/SainTod/MIPicker"
   s.license      = "MIT"
