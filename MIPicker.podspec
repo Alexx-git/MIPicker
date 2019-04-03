@@ -7,8 +7,7 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
   s.author             = { "Alexx" => "alexx.dudkin@gmail.com" }
   s.source       = { :git => "https://github.com/SainTod/MIPicker", :tag => "#{s.version}" }
-  s.source_files  = "Classes", "Classes/**/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
+  s.source_files  = "Source", "Source/**/*.{h,m}"
   s.requires_arc = true
 
 end
