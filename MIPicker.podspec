@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
   s.author             = { "Alexx" => "alexx.dudkin@gmail.com" }
   s.source       = { :git => "https://github.com/SainTod.git", :tag => "#{s.version}" }
-  s.source_files  = "MultipleImagePicker/Source", "Source/**/*.{h,m}"
+  s.source_files  = "MultipleImagePicker/MultipleImagePicker/Source", "Source/**/*.{h,m}"
   s.requires_arc = true
 
 end
