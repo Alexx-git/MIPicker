@@ -9,7 +9,7 @@
 import UIKit
 import Photos
 
-class MIPShowDemoViewController: UIViewController, UICollectionViewDataSource, UINavigationControllerDelegate, MIPDelegate {
+class MIPShowDemoViewController: UIViewController, UICollectionViewDataSource, UINavigationControllerDelegate, MIPickerDelegate {
 
     var items: Array<Dictionary<UIImagePickerController.InfoKey, Any>> = []
     
@@ -25,7 +25,6 @@ class MIPShowDemoViewController: UIViewController, UICollectionViewDataSource, U
         self.view.addSubview(collectionView)
         collectionView.backgroundColor = .white
         collectionView.dataSource = self
-//        collectionView.autoPinEdgesToSuperviewEdges()
         collectionView.pinToSuperview()
         PhotoCollectionViewCell.register(collectionView: collectionView)
         setupFlowLayout()
@@ -36,16 +35,14 @@ class MIPShowDemoViewController: UIViewController, UICollectionViewDataSource, U
         setupFlowLayout()
     }
     
-    func setupFlowLayout()
-    {
+    func setupFlowLayout() {
         let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         let itemWidth = (collectionView.frame.width - 3 * flowLayout.minimumInteritemSpacing) / 4
         let itemSize = CGSize(width: itemWidth, height: itemWidth)
         flowLayout.itemSize = itemSize
     }
     
-    @objc func didClickSelectButton(sender: UIBarButtonItem)
-    {
+    @objc func didClickSelectButton(sender: UIBarButtonItem) {
         let photos = PHPhotoLibrary.authorizationStatus()
         if photos == .notDetermined {
             PHPhotoLibrary.requestAuthorization({status in
@@ -54,18 +51,14 @@ class MIPShowDemoViewController: UIViewController, UICollectionViewDataSource, U
                         self.showPickerController()
                     }
                 }
-                else {}
             })
-        }
-        else if photos == .authorized
-        {
+        } else if photos == .authorized {
             showPickerController()
         }
         
     }
     
-    func showPickerController()
-    {
+    func showPickerController() {
         let pickerController = PickerController()
         pickerController.delegate = self
         self.present(pickerController, animated: true, completion: nil)
@@ -76,12 +69,9 @@ class MIPShowDemoViewController: UIViewController, UICollectionViewDataSource, U
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = PhotoCollectionViewCell.dequeue(collectionView: collectionView, for: indexPath)
         let imageDictionary = items[indexPath.row]
-        if let image = imageDictionary[.originalImage] as? UIImage
-        {
+        if let image = imageDictionary[.originalImage] as? UIImage {
             cell.imageView.image = image
-        }
-        else
-        {
+        } else {
             print("Error - dictionary should have UIImage for the key .originalImage")
         }
         return cell

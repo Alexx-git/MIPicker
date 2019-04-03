@@ -36,7 +36,6 @@ class SelectViewController: UIViewController, UICollectionViewDataSource, UIColl
 		setupFlowLayout()
 		PhotoCollectionViewCell.register(collectionView: collectionView)
 		view.addSubview(collectionView)
-//        collectionView.autoPinEdgesToSuperviewEdges()
         collectionView.pinToSuperview()
 	}
 	
@@ -45,8 +44,7 @@ class SelectViewController: UIViewController, UICollectionViewDataSource, UIColl
 		setupFlowLayout()
 	}
 	
-	func setupFlowLayout()
-	{
+	func setupFlowLayout() {
 		let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
 		let itemWidth = (collectionView.frame.width - 3 * flowLayout.minimumInteritemSpacing) / 4
 		flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth)
@@ -65,27 +63,21 @@ class SelectViewController: UIViewController, UICollectionViewDataSource, UIColl
 			cell.imageView.image = image
 			cell.contentView.backgroundColor = .red
 		}
-		if selectedImagesIndexPaths.contains(indexPath)
-		{
+		if selectedImagesIndexPaths.contains(indexPath) {
 			cell.setSelected()
 		}
-		if asset.mediaType == .video
-		{
+		if asset.mediaType == .video {
 			cell.durationLabel.isHidden = false
 			let duration = asset.duration
 			let seconds = trunc(duration.truncatingRemainder(dividingBy: 60.0))
 			let minutes = trunc((duration / 60.0).truncatingRemainder(dividingBy: 60.0))
 			let hours = trunc(duration / 3600)
-			if hours > 0
-			{
+			if hours > 0 {
 				cell.durationLabel.text = String(format: "%02.0f:%02.0f:%02.0f", hours, minutes, seconds)
-			}
-			else
-			{
+			} else {
 				cell.durationLabel.text = String(format: "%02.0f:%02.0f", minutes, seconds)
 			}
 		}
-		
 		return cell
 	}
 	
@@ -101,8 +93,7 @@ class SelectViewController: UIViewController, UICollectionViewDataSource, UIColl
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-		if let indexOfPath = selectedImagesIndexPaths.index(of: indexPath)
-		{
+		if let indexOfPath = selectedImagesIndexPaths.index(of: indexPath) {
 			selectedImagesIndexPaths.remove(at: indexOfPath)
 		}
 		let cell = collectionView.cellForItem(at: indexPath) as! PhotoCollectionViewCell
@@ -116,38 +107,27 @@ class SelectViewController: UIViewController, UICollectionViewDataSource, UIColl
 	{
         var imageDictionaries: Array<Dictionary<UIImagePickerController.InfoKey, Any>> = []
 		var counter = selectedImagesIndexPaths.count
-		for path in selectedImagesIndexPaths
-		{
+		for path in selectedImagesIndexPaths {
             var mediaDictionary: Dictionary<UIImagePickerController.InfoKey, Any> = [:]
 			let asset = items[path.row]
-            if asset.mediaType == .video
-            {
+            if asset.mediaType == .video {
                 mediaDictionary[.mediaType] = kUTTypeVideo
-            }
-            else
-            {
+            } else {
                 mediaDictionary[.mediaType] = kUTTypeImage
             }
-			
-			let name = asset.value(forKey: "filename") as? String
-            
 			PHImageManager.default().requestImage(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: nil) { (image, _) -> Void in
                 mediaDictionary[.originalImage] = image
                 imageDictionaries.append(mediaDictionary)
 				counter -= 1
-				if counter == 0
-				{
-                    if self.picker != nil
-                    {
+				if counter == 0 {
+                    if self.picker != nil {
                         self.picker!.delegate?.imagePickerController(self.picker!, didFinishPickingMediaWithInfo: imageDictionaries)
                         self.navigationController?.parent?.dismiss(animated: true, completion: nil)
                     }
-                    
 				}
 			}
 		}
 	}
-
 }
 
 

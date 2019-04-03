@@ -18,7 +18,6 @@
 		F5D6ABC6224AC4A8000C1EE2 /* PickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F82E2240101D0041366C /* PickerController.swift */; };
 		F5D6ABC7224AC4B4000C1EE2 /* AlbumListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F8302240101D0041366C /* AlbumListViewController.swift */; };
 		F5D6ABC8224AC4B4000C1EE2 /* AlbumPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F82F2240101D0041366C /* AlbumPreviewView.swift */; };
-		F5D6ABC9224AC4B4000C1EE2 /* AlbumPreviewView+Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F8312240101D0041366C /* AlbumPreviewView+Photos.swift */; };
 		F5D6ABCA224AC4B4000C1EE2 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F8322240101D0041366C /* SelectViewController.swift */; };
 		F5D6ABCB224AC4B4000C1EE2 /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F512F8332240101D0041366C /* AlbumTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -41,7 +40,6 @@
 		F512F82E2240101D0041366C /* PickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerController.swift; sourceTree = "<group>"; };
 		F512F82F2240101D0041366C /* AlbumPreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumPreviewView.swift; sourceTree = "<group>"; };
 		F512F8302240101D0041366C /* AlbumListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumListViewController.swift; sourceTree = "<group>"; };
-		F512F8312240101D0041366C /* AlbumPreviewView+Photos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AlbumPreviewView+Photos.swift"; sourceTree = "<group>"; };
 		F512F8322240101D0041366C /* SelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 		F512F8332240101D0041366C /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
 		F512F83A22402BE10041366C /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 				F512F82E2240101D0041366C /* PickerController.swift */,
 				F512F8302240101D0041366C /* AlbumListViewController.swift */,
 				F512F82F2240101D0041366C /* AlbumPreviewView.swift */,
-				F512F8312240101D0041366C /* AlbumPreviewView+Photos.swift */,
 				F512F8322240101D0041366C /* SelectViewController.swift */,
 				F512F8332240101D0041366C /* AlbumTableViewCell.swift */,
 				F512F83A22402BE10041366C /* PhotoCollectionViewCell.swift */,
@@ -296,7 +293,6 @@
 				F5D6ABC8224AC4B4000C1EE2 /* AlbumPreviewView.swift in Sources */,
 				F5D6ABCB224AC4B4000C1EE2 /* AlbumTableViewCell.swift in Sources */,
 				F5D6ABC7224AC4B4000C1EE2 /* AlbumListViewController.swift in Sources */,
-				F5D6ABC9224AC4B4000C1EE2 /* AlbumPreviewView+Photos.swift in Sources */,
 				F5D6ABCA224AC4B4000C1EE2 /* SelectViewController.swift in Sources */,
 				F512F83D224041900041366C /* MIPShowDemoViewController.swift in Sources */,
 			);

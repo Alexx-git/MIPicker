@@ -13,57 +13,49 @@ public class PickerController: UIViewController {
 	let albumController = AlbumListViewController()
 	var navController: UINavigationController?
 	
-    weak public var delegate: (UINavigationControllerDelegate & MIPDelegate)?
-	{
-		didSet
-		{
-			albumController.picker = self
-			if navController != nil
-			{
+    weak public var delegate: (UINavigationControllerDelegate & MIPickerDelegate)? {
+		didSet {
+			if navController != nil {
 				navController!.delegate = delegate
 			}
 		}
 	}
-
     
-    public var userAlbumsTitle: String? = "My Albums"
-    {
-        didSet
-        {
+    public var albumControllerTitle: String? = "Photos" {
+        didSet {
+            albumController.albumControllerTitle = albumControllerTitle
+        }
+    }
+
+    public var userAlbumsTitle: String? = "My Albums" {
+        didSet {
             albumController.userAlbumsTitle = userAlbumsTitle
         }
     }
 	
-	public var imagePickingFinishedButtonTitle: String? = "Done"
-	{
-		didSet
-		{
-			albumController.imagePickingFinishedButtonTitle = imagePickingFinishedButtonTitle
+	public var doneButtonTitle: String? = "Done" {
+		didSet {
+			albumController.doneButtonTitle = doneButtonTitle
 		}
 	}
 	
-	
-	init()
-	{
+	init() {
+        super.init(nibName: nil, bundle: nil)
+        albumController.picker = self
 		navController = UINavigationController(rootViewController: albumController)
-		super.init(nibName: nil, bundle: nil)
-		
 		self.addChild(navController!)
 		self.view.addSubview(navController!.view)
-//        navController!.view.autoPinEdgesToSuperviewEdges()
         navController!.view.pinToSuperview()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 	}
-	
 }
 
-public protocol MIPDelegate: class {
+public protocol MIPickerDelegate: class {
     func imagePickerController(_ picker: PickerController,
                                didFinishPickingMediaWithInfo infoArray: Array<Dictionary<UIImagePickerController.InfoKey, Any>>)
-    
     
     func imagePickerControllerDidCancel(_ picker: PickerController)
 }

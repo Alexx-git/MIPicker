@@ -14,14 +14,13 @@ class AlbumListViewController: UIViewController, UITableViewDataSource, UITableV
 	
 	let tableView = UITableView()
 	
-	
 	var items: Array<Array<PHFetchResult<PHAsset>>> = []
 	var names: Array<Array<String>> = []
 	
-	var imagePickingFinishedButtonTitle: String?
+    var albumControllerTitle: String?
+	var doneButtonTitle: String?
     var userAlbumsTitle: String?
 
-	
 	let imageSize = CGSize(width: 100.0, height: 100.0)
 	
 	let headerReuseIdentifier = String(describing: UITableViewHeaderFooterView.self)
@@ -35,7 +34,6 @@ class AlbumListViewController: UIViewController, UITableViewDataSource, UITableV
 		view.addSubview(tableView)
 		tableView.delegate = self
 		tableView.dataSource = self
-//        tableView.autoPinEdgesToSuperviewEdges()
         tableView.pinToSuperview()
         tableView.tableFooterView = UIView()
 		AlbumTableViewCell.register(tableView: tableView)
@@ -45,29 +43,22 @@ class AlbumListViewController: UIViewController, UITableViewDataSource, UITableV
 
 	
 	
-	func loadItems()
-	{
+	func loadItems() {
 		let sortByCreationDateOptions = PHFetchOptions()
 		sortByCreationDateOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
 		
 		let smartAlbums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .any, options: nil)
 		var assetsArray: Array<PHFetchResult<PHAsset>> = []
 		var namesArray: Array<String> = []
-		for counter in 0..<smartAlbums.count
-		{
+		for counter in 0..<smartAlbums.count {
 			let collection = smartAlbums[counter]
 			let assets = PHAsset.fetchAssets(in: collection, options: sortByCreationDateOptions)
-			if assets.count > 0
-			{
-				if let title = collection.localizedTitle
-				{
+			if assets.count > 0 {
+				if let title = collection.localizedTitle {
 					namesArray.append(title)
-				}
-				else
-				{
+				} else {
 					namesArray.append("Unnamed album")
 				}
-				
 				assetsArray.append(assets)
 			}
 		}
@@ -79,21 +70,15 @@ class AlbumListViewController: UIViewController, UITableViewDataSource, UITableV
 		let userCollections = PHCollectionList.fetchTopLevelUserCollections(with: nil)
 		let count = userCollections.count
 		
-		for number in 0..<count
-		{
+		for number in 0..<count {
 			let collection = userCollections[number]
-			if collection.canContainAssets
-			{
+			if collection.canContainAssets {
 				let assetCollection = collection as! PHAssetCollection
 				let assets = PHAsset.fetchAssets(in: assetCollection, options: sortByCreationDateOptions)
-				if assets.count > 0
-				{
-					if let title = collection.localizedTitle
-					{
+				if assets.count > 0 {
+					if let title = collection.localizedTitle {
 						namesArray.append(title)
-					}
-					else
-					{
+					} else {
 						namesArray.append("Unnamed album")
 					}
 					assetsArray.append(assets)
@@ -115,8 +100,7 @@ class AlbumListViewController: UIViewController, UITableViewDataSource, UITableV
 		return items[section].count
 	}
 	
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-	{
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = AlbumTableViewCell.dequeue(tableView: tableView)
 		let row = indexPath.row
 		let section = indexPath.section
@@ -124,11 +108,9 @@ class AlbumListViewController: UIViewController, UITableViewDataSource, UITableV
 		let assets = items[section][row]
 		cell.countLabel.text = String(assets.count)
 		let viewCount = min(assets.count, 3)
-		for counter in 0..<viewCount
-		{
+		for counter in 0..<viewCount {
 			PHImageManager.default().requestImage(for: assets[counter], targetSize: cell.previewView.sizeForViewAt(number: counter), contentMode: .aspectFill, options: nil) { (image, _) -> Void in
-				if image != nil
-				{
+				if image != nil {
 					cell.previewView.set(image: image!, forViewAt: counter)
 				}
 			}
@@ -138,8 +120,7 @@ class AlbumListViewController: UIViewController, UITableViewDataSource, UITableV
 	}
 	
 	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		if section == 1 && items[section].count > 0
-		{
+		if section == 1 && items[section].count > 0 {
 			return userAlbumsTitle
 		}
 		return nil
@@ -147,16 +128,14 @@ class AlbumListViewController: UIViewController, UITableViewDataSource, UITableV
 	
     // MARK: UITableViewDelegate methods
 	
-	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-	{
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let selectController = SelectViewController()
 		let row = indexPath.row
 		let section = indexPath.section
 		selectController.items = items[section][row]
         selectController.title = names[section][row]
-		if imagePickingFinishedButtonTitle != nil
-		{
-			selectController.navigationItem.rightBarButtonItem?.title = imagePickingFinishedButtonTitle
+		if doneButtonTitle != nil {
+			selectController.navigationItem.rightBarButtonItem?.title = doneButtonTitle
 		}
 		selectController.picker = picker
 		self.navigationController?.pushViewController(selectController, animated: true)
@@ -164,18 +143,10 @@ class AlbumListViewController: UIViewController, UITableViewDataSource, UITableV
     
     // MARK: Buttons
 	
-	@objc func didClickCancelButton(sender: UIBarButtonItem)
-	{
-        if picker != nil
-        {
+	@objc func didClickCancelButton(sender: UIBarButtonItem) {
+        if picker != nil {
             self.picker?.delegate?.imagePickerControllerDidCancel(picker!)
             picker!.dismiss(animated: true, completion: nil)
         }
-        else
-        {
-            
-        }
-        
 	}
-
 }
