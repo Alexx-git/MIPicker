@@ -30,7 +30,7 @@ class AlbumPreviewView: UIView {
 			let bottomInset = CGFloat(counter) * gap * 3
             let edgeInsets = UIEdgeInsets(top: topInset, left: sideInset, bottom: bottomInset, right: sideInset)
             imageView.pinToSuperview(withEdgeInsets: edgeInsets)
-			self.sendSubviewToBack(imageView)
+            self.sendSubview(toBack: imageView)
 			imageViews.append(imageView)
 		}
 	}
