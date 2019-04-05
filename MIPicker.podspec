@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/SainTod.git", :tag => "#{s.version}" }
   s.source_files  = "MultipleImagePicker/MultipleImagePicker/Source", "Source/**/*.{h,m}"
   s.platforms = { :ios => "9.0"}
-  s.swift_version = '4.0'
+  s.swift_version = '4.2'
   s.requires_arc = true
 
 end
