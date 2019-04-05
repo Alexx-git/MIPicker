@@ -52,7 +52,11 @@ class PhotoCollectionViewCell: UICollectionViewCell {
 		contentView.addSubview(imageView)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
+        if #available(iOS 11.0, *) {
+            imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
+        } else {
+            // Fallback on earlier versions
+        }
         imageView.pinToSuperview()
 		contentView.addSubview(checkmarkImageView)
         checkmarkImageView.isHidden = true
