@@ -105,28 +105,54 @@ class SelectViewController: UIViewController, UICollectionViewDataSource, UIColl
 	
 	@objc func didClickDoneButton(sender: UIBarButtonItem)
 	{
-        var imageDictionaries: Array<Dictionary<UIImagePickerController.InfoKey, Any>> = []
-		var counter = selectedImagesIndexPaths.count
-		for path in selectedImagesIndexPaths {
-            var mediaDictionary: Dictionary<UIImagePickerController.InfoKey, Any> = [:]
-			let asset = items[path.row]
-            if asset.mediaType == .video {
-                mediaDictionary[.mediaType] = kUTTypeVideo
-            } else {
-                mediaDictionary[.mediaType] = kUTTypeImage
-            }
-			PHImageManager.default().requestImage(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: nil) { (image, _) -> Void in
-                mediaDictionary[.originalImage] = image
-                imageDictionaries.append(mediaDictionary)
-				counter -= 1
-				if counter == 0 {
-                    if self.picker != nil {
-                        self.picker!.delegate?.imagePickerController(self.picker!, didFinishPickingMediaWithInfo: imageDictionaries)
-                        self.navigationController?.parent?.dismiss(animated: true, completion: nil)
+        if #available(iOS 12.0, *) {
+            var imageDictionaries: Array<Dictionary<UIImagePickerController.InfoKey, Any>> = []
+            var counter = selectedImagesIndexPaths.count
+            for path in selectedImagesIndexPaths {
+                var mediaDictionary: Dictionary<UIImagePickerController.InfoKey, Any> = [:]
+                let asset = items[path.row]
+                if asset.mediaType == .video {
+                    mediaDictionary[.mediaType] = kUTTypeVideo
+                } else {
+                    mediaDictionary[.mediaType] = kUTTypeImage
+                }
+                PHImageManager.default().requestImage(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: nil) { (image, _) -> Void in
+                    mediaDictionary[.originalImage] = image
+                    imageDictionaries.append(mediaDictionary)
+                    counter -= 1
+                    if counter == 0 {
+                        if self.picker != nil {
+                            self.picker!.delegate?.imagePickerController(self.picker!, didFinishPickingMediaWithInfo: imageDictionaries)
+                            self.navigationController?.parent?.dismiss(animated: true, completion: nil)
+                        }
                     }
-				}
-			}
-		}
+                }
+            }
+        } else {
+            var imageDictionaries: Array<Dictionary<String, Any>> = []
+            var counter = selectedImagesIndexPaths.count
+            for path in selectedImagesIndexPaths {
+                var mediaDictionary: Dictionary<String, Any> = [:]
+                let asset = items[path.row]
+                let mediaTypeKeyRawValue: String = UIImagePickerController.InfoKey.mediaType.rawValue
+                if asset.mediaType == .video {
+                    mediaDictionary[mediaTypeKeyRawValue] = kUTTypeVideo
+                } else {
+                    mediaDictionary[mediaTypeKeyRawValue] = kUTTypeImage
+                }
+                PHImageManager.default().requestImage(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: nil) { (image, _) -> Void in
+                    mediaDictionary[UIImagePickerController.InfoKey.originalImage.rawValue] = image
+                    imageDictionaries.append(mediaDictionary)
+                    counter -= 1
+                    if counter == 0 {
+                        if self.picker != nil {
+                            self.picker!.delegate?.imagePickerController(self.picker!, didFinishPickingMediaWithInfo: imageDictionaries)
+                            self.navigationController?.parent?.dismiss(animated: true, completion: nil)
+                        }
+                    }
+                }
+            }
+        }
 	}
 }
 

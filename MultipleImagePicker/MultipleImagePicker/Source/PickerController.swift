@@ -54,8 +54,14 @@ public class PickerController: UIViewController {
 }
 
 public protocol MIPickerDelegate: class {
+    
+    @available(iOS 12.0, *)
     func imagePickerController(_ picker: PickerController,
                                didFinishPickingMediaWithInfo infoArray: Array<Dictionary<UIImagePickerController.InfoKey, Any>>)
+    
+    @available(iOS, deprecated: 12.0)
+    func imagePickerController(_ picker: PickerController,
+                               didFinishPickingMediaWithInfo infoArray: Array<Dictionary<String, Any>>)
     
     func imagePickerControllerDidCancel(_ picker: PickerController)
 }

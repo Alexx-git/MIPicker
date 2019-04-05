@@ -10,6 +10,9 @@ import UIKit
 import Photos
 
 class MIPShowDemoViewController: UIViewController, UICollectionViewDataSource, UINavigationControllerDelegate, MIPickerDelegate {
+    
+    
+    
 
     var items: Array<Dictionary<UIImagePickerController.InfoKey, Any>> = []
     
@@ -87,6 +90,10 @@ class MIPShowDemoViewController: UIViewController, UICollectionViewDataSource, U
         items = infoArray
         collectionView.reloadData()
         view.layoutSubviews()
+    }
+    
+    func imagePickerController(_ picker: PickerController, didFinishPickingMediaWithInfo infoArray: Array<Dictionary<String, Any>>) {
+        
     }
     
     func imagePickerControllerDidCancel(_ picker: PickerController) {

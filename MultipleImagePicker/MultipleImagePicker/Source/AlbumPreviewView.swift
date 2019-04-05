@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import PureLayout
 
 
 class AlbumPreviewView: UIView {
@@ -15,7 +14,6 @@ class AlbumPreviewView: UIView {
 	var imageViews: Array<UIImageView> = []
     
     private var gap:CGFloat = 3.0
-	
 	
 	init (viewCount: Int = 3, viewGap: CGFloat = 3.0) {
 		super.init(frame: .zero)

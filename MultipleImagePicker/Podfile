@@ -6,6 +6,6 @@ target 'MultipleImagePicker' do
   use_frameworks!
 
   # Pods for MultipleImagePicker
-pod 'PureLayout'
+
 
 end
