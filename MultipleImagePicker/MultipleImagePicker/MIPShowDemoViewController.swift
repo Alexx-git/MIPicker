@@ -8,6 +8,7 @@
 
 import UIKit
 import Photos
+import MIPicker
 
 class MIPShowDemoViewController: UIViewController, UICollectionViewDataSource, UINavigationControllerDelegate, MIPickerDelegate {
     
